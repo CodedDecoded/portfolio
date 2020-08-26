@@ -1,0 +1,79 @@
+
+$bgcolor: #fbe1cd;
+$fontcolor: #000000;
+
+@mixin Bal($weight, $fsize) {
+    $weights: (
+        regular: 400,
+        strong: 700
+    );
+    $output: $weight;
+
+    @if map-has-key($weights , $weight){
+        $output: map-get($weights , $weight);
+    }
+    font-family: "Balsamiq Sans";
+    font-weight: $output;
+    font-size: $fsize+px;
+}
+
+@mixin Nunito($weight, $fsize) {
+    $weights: (
+        extra-thin:200,
+        thin: 300,
+        regular: 400,
+        strong: 700
+    );
+    $output: $weight;
+
+    @if map-has-key($weights , $weight){
+        $output: map-get($weights , $weight);
+    }
+    font-family: "Nunito";
+    font-weight: $output;
+    font-size: $fsize+px;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: $bgcolor;
+    @include Nunito(strong, 14);
+    color: $fontcolor;
+}
+.pad0{
+    padding: 0;
+}
+.m-0{
+    margin: 0;
+}
+@mixin menu-anchor {
+    text-decoration: none;
+    color: #000000;
+}
+.main-nav{
+    padding: 20px;
+    ul{
+        list-style: none;
+        margin: 0;
+        text-align: right;
+        li{
+            display: inline;
+            @include Nunito(strong, 24);
+            text-transform: uppercase;
+            a{
+                display: inline-block;
+                padding: 0 10px;
+                @include menu-anchor();
+                min-width: 6vw;
+                text-align: center;
+            }
+        }
+    }
+}
+.main-logo h3{
+    
+}
